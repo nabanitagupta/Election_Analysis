@@ -44,16 +44,16 @@ with open(file_to_load) as election_data:
         # If the county does not match any existing counties...
         if county_name not in County_list:
             # Add it to the list of counties
-            county_List.append(county_name)
+            County_list.append(county_name)
             # Begin tracking each county's vote count. 
             County_votes[county_name] = 0
-        # Add a vote to that county's count
-        County_votes[county_name] += 1
+            # Add a vote to that county's count
+            County_votes[county_name] += 1
         # Determine the percentage of votes for each county by looping through the counts.
   # 1. Iterate through the county list.
-    for county in county_votes:
+    for county in County_votes:
         #Retrieve vote count of a county
-        Regional_votes = county_votes[county]
+        Regional_votes = County_votes[county]
         # 3. Calculate the percentage of votes.
         vote_percentage = float(Regional_votes) / float(total_votes) * 100
         #  To do: print out each county's name, vote count, and percentage of
@@ -73,7 +73,7 @@ with open(file_to_load) as election_data:
             highest_percentage = vote_percentage
             # And, set the highest turnout county equal to the caounty's name.
             County_Biggest_Turnout = county
-    # Print out the winning candidate, vote count and percentage to terminal
+    # Print out the county with largest turnout to terminal
             Largest_Turnout_County = (
             f"-------------------------\n"
             f"Largest County Turnout: {County_Biggest_Turnout}\n"
